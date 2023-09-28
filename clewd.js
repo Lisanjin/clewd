@@ -14,6 +14,8 @@ const events = require('events'), CookieChanger = new events.EventEmitter();
 CookieChanger.on('ChangeCookie', () => {
     Proxy && Proxy.close();
     console.log(`\nChanging Cookie...\n`);
+    console.log(`\nChanging Cookie...\n`);
+
     Proxy.listen(Config.Port, Config.Ip, onListen);
     Proxy.on('error', (err => {
         console.error('Proxy error\n%o', err);
@@ -204,6 +206,8 @@ const updateParams = res => {
     for (const cookie of cookieArr) {
         const divide = cookie.split(/^(.*?)=\s*(.*)/), cookieName = divide[1], cookieVal = divide[2];
         cookies[cookieName] = cookieVal;
+        console.log(cookies);
+
     }
 }, getCookies = () => {
     const cookieNames = Object.keys(cookies);
